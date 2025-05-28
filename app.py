@@ -6,7 +6,7 @@ import streamlit as st
 st.title("Análisis de Vehículos")
 
 # Cargar
-car_data = pd.read_csv('notebooks/vehicles_us.csv')
+car_data = pd.read_csv('vehicles_us.csv')
 
 # Crear check-boxes
 show_histogram = st.checkbox('Histograma de kilometraje')
