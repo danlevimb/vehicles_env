@@ -1,0 +1,11 @@
+# Entorno virtual (solo sus subcarpetas, no el repo entero)
+Lib/
+Scripts/
+Include/
+pyvenv.cfg
+share/
+
+# Bytecode, logs, etc.
+__pycache__/
+*.py[cod]
+*.log
