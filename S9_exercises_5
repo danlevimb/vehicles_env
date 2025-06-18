@@ -1,0 +1,113 @@
+import pandas as pd
+import numpy as np
+
+orders = pd.read_csv('/datasets/orders_data_for_cohort.csv')
+
+first_order_date_by_customers = orders.groupby('customer_id')['order_date'].min()
+
+first_order_date_by_customers.name = 'first_order_date'
+
+orders = orders.join(first_order_date_by_customers,on='customer_id')
+
+orders['first_order_month'] = orders['first_order_date'].astype('datetime64[M]')
+
+orders['order_month'] = orders['order_date'].astype('datetime64[M]')
+
+orders_grouped_by_cohorts = orders.groupby(['first_order_month', 'order_month']).agg({'revenue': 'sum', 'customer_id': 'nunique'})
+
+orders_grouped_by_cohorts['revenue_per_user'] = (   orders_grouped_by_cohorts['revenue'] / orders_grouped_by_cohorts['customer_id'])
+
+orders_grouped_by_cohorts.pivot_table(
+    index='first_order_month',
+    columns='order_month',
+    values='revenue_per_user',
+    aggfunc='mean',)
+
+orders_grouped_by_cohorts = orders_grouped_by_cohorts.reset_index()
+orders_grouped_by_cohorts['cohort_lifetime'] = (orders_grouped_by_cohorts['order_month'] - 
+                                                orders_grouped_by_cohorts['first_order_month'])
+orders_grouped_by_cohorts['cohort_lifetime'] = orders_grouped_by_cohorts['cohort_lifetime'] / np.timedelta64(1, 'M')
+
+print(orders_grouped_by_cohorts['cohort_lifetime'].head())
+
+orders_grouped_by_cohorts['cohort_lifetime'] = (orders_grouped_by_cohorts['cohort_lifetime'].round().astype('int'))
+print(orders_grouped_by_cohorts[['first_order_month','order_month','cohort_lifetime']].head())
+print(orders_grouped_by_cohorts[['first_order_month','order_month','cohort_lifetime']].tail())
+
+orders_grouped_by_cohorts['first_order_month'].dt.strftime('%d.%m.%Y')
+# ----------------------------------------------------------------------------
+import seaborn as sns
+from matplotlib import pyplot as plt
+import pandas as pd
+
+revenue_per_user_pivot = pd.read_csv('/datasets/revenue_pivot.csv')
+revenue_per_user_pivot = revenue_per_user_pivot.set_index('first_order_month')
+
+# Establece el tamaño de la figura
+plt.figure(figsize=(13,9))
+
+# Da un nombre a la visualización
+plt.title('Tamaño promedio de compra del cliente')
+
+# Crea un mapa de calor
+sns.heatmap(revenue_per_user_pivot, annot=True, fmt='.2f', linewidths=1, linecolor='black')
+
+# ----------------------------------------------------------------------------
+dates_series = pd.Series(pd.date_range('2010-01-01', periods =10, freq='D'))
+
+offset_dates_series = dates_series - pd.Timedelta(days=3)
+print(offset_dates_series)
+
+# ---------------------------------------------------------------------------- Cálculo de la tasa de retención. 
+
+import pandas as pd
+import numpy as np
+
+# Importar CSV
+user_activity = pd.read_csv('/datasets/user_activity.csv')
+
+# Cambiar el campo a fecha
+user_activity['activity_date'] = pd.to_datetime(user_activity['activity_date'])
+
+# Obtener la fecha de la primer actividad
+first_activity_date = user_activity.groupby('user_id')['activity_date'].min()
+
+# Renombrar el objeto series para realizar el join
+first_activity_date.name = 'first_activity_date'
+
+# Unir los dataframes para agregar la cohorte.
+user_activity = user_activity.join(first_activity_date, on ='user_id')
+
+user_activity['activity_week'] = pd.to_datetime(user_activity['activity_date'],unit='d') - pd.to_timedelta(user_activity['activity_date'].dt.dayofweek, unit='d')
+user_activity['first_activity_week'] = pd.to_datetime(user_activity['first_activity_date'], unit='d') - pd.to_timedelta(user_activity['first_activity_date'].dt.dayofweek, unit='d')
+
+user_activity['cohort_lifetime'] = (user_activity['activity_week'] - user_activity['first_activity_week'])
+user_activity['cohort_lifetime'] = user_activity['cohort_lifetime'] / np.timedelta64(1,'W')
+user_activity['cohort_lifetime'] = user_activity['cohort_lifetime'].astype(int)
+
+cohorts=(user_activity.groupby(['first_activity_week', 'cohort_lifetime']).agg({'user_id':'nunique'}).reset_index())
+
+initial_users_count = cohorts[cohorts['cohort_lifetime'] == 0][['first_activity_week', 'user_id']]
+
+initial_users_count = initial_users_count.rename(columns={'user_id':'cohort_users'})
+
+cohorts = cohorts.merge(initial_users_count, on ='first_activity_week')
+cohorts['retention'] = cohorts['user_id'] / cohorts['cohort_users']
+
+retention_pivot = cohorts.pivot_table(index='first_activity_week', columns='cohort_lifetime', values='retention', aggfunc='sum',)
+
+import seaborn as sns
+from matplotlib import pyplot as plt
+
+sns.set(style='white')
+plt.figure(figsize=(13,9))
+plt.title('Cohortes: retención de usuarios/as')
+sns.heatmap(retention_pivot, annot=True, fmt='.1%', linewidths=1, linecolor='gray')
+
+# ---------------------------------------------------------------------------- Cálculo de la tasa de cancelación
+
+
+
+
+
+
