@@ -3,12 +3,16 @@ import numpy as np
 
 orders = pd.read_csv('/datasets/orders_data_for_cohort.csv')
 
+# Extraer la fecha del primer pedido
 first_order_date_by_customers = orders.groupby('customer_id')['order_date'].min()
 
+# Cambiarle el nombre al nuevo dataframe (para poder unirlo posteriormente)
 first_order_date_by_customers.name = 'first_order_date'
 
+# Unir los dataframes
 orders = orders.join(first_order_date_by_customers,on='customer_id')
 
+# 
 orders['first_order_month'] = orders['first_order_date'].astype('datetime64[M]')
 
 orders['order_month'] = orders['order_date'].astype('datetime64[M]')
