@@ -1,0 +1,1134 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20252.25.0818.1050                               -->
+<workbook original-version='18.1' source-build='2025.2.2 (20252.25.0818.1050)' source-platform='win' version='18.1' xml:base='https://public.tableau.com' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AccessibleZoneTabOrder />
+    <AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <SortTagCleanup />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+    <ZoneBackgroundTransparency />
+  </document-format-change-manifest>
+  <repository-location id='S12_V6' path='/workbooks' revision='1.2' />
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
+      <aliases enabled='yes' />
+      <column caption='Top N' datatype='integer' name='[Parámetro 1]' param-domain-type='any' role='measure' type='quantitative' value='10'>
+        <calculation class='tableau' formula='10' />
+      </column>
+    </datasource>
+    <datasource caption='trending_by_time' inline='true' name='federated.0vzmxjm022nhje14q9m9t0v9xodv' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='trending_by_time' name='textscan.0imkkac1rvzq6y13783w41wxu0w6'>
+            <connection class='textscan' directory='C:/Git/vehicles_env/datasets' filename='trending_by_time.csv' password='' server='' workgroup-auth-mode='as-is' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.0imkkac1rvzq6y13783w41wxu0w6' name='trending_by_time.csv' table='[trending_by_time#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='es_MX' separator=','>
+            <column datatype='integer' name='record_id' ordinal='0' />
+            <column datatype='string' name='region' ordinal='1' />
+            <column datatype='date' name='trending_date' ordinal='2' />
+            <column datatype='string' name='category_title' ordinal='3' />
+            <column datatype='integer' name='videos_count' ordinal='4' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[trending_by_time.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;es&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;es_MX&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>record_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[record_id]</local-name>
+            <parent-name>[trending_by_time.csv]</parent-name>
+            <remote-alias>record_id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[trending_by_time.csv_48D5B5C1E0054270AC54B1099E4CBE77]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>region</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[region]</local-name>
+            <parent-name>[trending_by_time.csv]</parent-name>
+            <remote-alias>region</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LES_RES' />
+            <object-id>[trending_by_time.csv_48D5B5C1E0054270AC54B1099E4CBE77]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>trending_date</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[trending_date]</local-name>
+            <parent-name>[trending_by_time.csv]</parent-name>
+            <remote-alias>trending_date</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[trending_by_time.csv_48D5B5C1E0054270AC54B1099E4CBE77]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>category_title</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[category_title]</local-name>
+            <parent-name>[trending_by_time.csv]</parent-name>
+            <remote-alias>category_title</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LES_RES' />
+            <object-id>[trending_by_time.csv_48D5B5C1E0054270AC54B1099E4CBE77]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>videos_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[videos_count]</local-name>
+            <parent-name>[trending_by_time.csv]</parent-name>
+            <remote-alias>videos_count</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[trending_by_time.csv_48D5B5C1E0054270AC54B1099E4CBE77]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Móvil Average (7 días)' datatype='real' name='[Calculation_1648036040610291717]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='WINDOW_AVG(SUM([videos_count]),-6,0)'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='Absoluto vs 7 días ' datatype='integer' name='[Calculation_1648036040610635782]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([videos_count]) - LOOKUP(SUM([videos_count]),-7)'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='% Participacion Categoría' datatype='real' name='[Calculation_1648036040610869255]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([videos_count]) / TOTAL(SUM([videos_count]))'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='Top N' datatype='boolean' name='[Calculation_1648036040611340296]' role='measure' type='nominal'>
+        <calculation class='tableau' formula='RANK_DENSE(SUM([videos_count]),&apos;desc&apos;) &lt;= [Parameters].[Parámetro 1]'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='Últimos 30 días' datatype='boolean' name='[Calculation_1648036040611561481]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='[trending_date] &gt;= DATEADD(&apos;day&apos;, -30, {MAX([trending_date])})' />
+      </column>
+      <column caption='Fecha Día' datatype='date' name='[Calculation_1648036040613335050]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='DATE([trending_date])' />
+      </column>
+      <column caption='trending_by_time.csv' datatype='table' name='[__tableau_internal_object_id__].[trending_by_time.csv_48D5B5C1E0054270AC54B1099E4CBE77]' role='measure' type='quantitative' />
+      <column caption='Category Title' datatype='string' name='[category_title]' role='dimension' type='nominal' />
+      <column caption='Record Id' datatype='integer' name='[record_id]' role='dimension' type='ordinal' />
+      <column caption='Region' datatype='string' name='[region]' role='dimension' type='nominal' />
+      <column caption='Trending Date' datatype='datetime' name='[trending_date]' role='dimension' type='ordinal' />
+      <column caption='Videos Count' datatype='integer' name='[videos_count]' role='measure' type='quantitative' />
+      <column-instance column='[category_title]' derivation='None' name='[none:category_title:nk]' pivot='key' type='nominal' />
+      <column-instance column='[region]' derivation='None' name='[none:region:nk]' pivot='key' type='nominal' />
+      <column-instance column='[trending_date]' derivation='None' name='[none:trending_date:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[videos_count]' derivation='Sum' name='[pcto:sum:videos_count:qk]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Rows' type='PctTotal' />
+      </column-instance>
+      <column-instance column='[videos_count]' derivation='Sum' name='[sum:videos_count:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_1648036040613335050]' derivation='Year-Trunc' name='[tyr:Calculation_1648036040613335050:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_1648036040610291717]' derivation='User' name='[usr:Calculation_1648036040610291717:qk:1]' pivot='key' type='quantitative'>
+        <table-calc ordering-field='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[tyr:Calculation_1648036040613335050:qk]' ordering-type='Field' />
+      </column-instance>
+      <column-instance column='[Calculation_1648036040610291717]' derivation='User' name='[usr:Calculation_1648036040610291717:qk:2]' pivot='key' type='quantitative'>
+        <table-calc ordering-field='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:trending_date:qk]' ordering-type='Field' />
+      </column-instance>
+      <group caption='Acción (Category Title,Region)' hidden='true' name='[Action (Category Title,Region)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[category_title]' />
+          <groupfilter function='level-members' level='[region]' />
+        </groupfilter>
+      </group>
+      <group caption='Acción (Category Title,Trending Date)' hidden='true' name='[Action (Category Title,Trending Date)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[category_title]' />
+          <groupfilter function='level-members' level='[trending_date]' />
+        </groupfilter>
+      </group>
+      <group caption='Acción (Region)' hidden='true' name='[Action (Region)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[region]' />
+        </groupfilter>
+      </group>
+      <group hidden='true' name='[Exclusiones (Category Title,Trending Date)]' name-style='unqualified' user:auto-column='exclude'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[none:category_title:nk]' />
+          <groupfilter function='level-members' level='[none:trending_date:qk]' />
+        </groupfilter>
+      </group>
+      <group hidden='true' name='[Inclusiones (Category Title,Trending Date)]' name-style='unqualified' user:auto-column='include'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[none:category_title:nk]' />
+          <groupfilter function='level-members' level='[none:trending_date:qk]' />
+        </groupfilter>
+      </group>
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='es_ES' class='hyper' dbname='C:/Users/DISPON~1/AppData/Local/Temp/TableauTemp/#TableauTemp_1vi1ozm0z59fsr1cwtng60opehkv.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='' username='tableau_internal_user'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>record_id</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[record_id]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>record_id</remote-alias>
+              <ordinal>0</ordinal>
+              <family>trending_by_time.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>12343</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>region</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[region]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>region</remote-alias>
+              <ordinal>1</ordinal>
+              <family>trending_by_time.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LES_RES' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>trending_date</remote-name>
+              <remote-type>135</remote-type>
+              <local-name>[trending_date]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>trending_date</remote-alias>
+              <ordinal>2</ordinal>
+              <family>trending_by_time.csv</family>
+              <local-type>datetime</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>221</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>category_title</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[category_title]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>category_title</remote-alias>
+              <ordinal>3</ordinal>
+              <family>trending_by_time.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>19</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LES_RES' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>videos_count</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[videos_count]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>videos_count</remote-alias>
+              <ordinal>4</ordinal>
+              <family>trending_by_time.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>109</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout common-percentage='0.835784' dim-ordering='alphabetic' measure-ordering='alphabetic' parameter-percentage='0.164216' show-structure='true' user-set-layout-v2='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0vzmxjm022nhje14q9m9t0v9xodv].[usr:Calculation_1648036040610291717:qk:1]&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;[federated.0vzmxjm022nhje14q9m9t0v9xodv].[usr:Calculation_1648036040610291717:qk:2]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.0vzmxjm022nhje14q9m9t0v9xodv]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.0vzmxjm022nhje14q9m9t0v9xodv].[pcto:sum:videos_count:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.0vzmxjm022nhje14q9m9t0v9xodv].[sum:videos_count:qk]&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:region:nk]' palette='tableau20_10_0' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;France&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;United States&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;India&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Japan&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Russia&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:category_title:nk]' palette='tableau20_10_0' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;Music&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Autos &amp; Vehicles&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Film &amp; Animation&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Pets &amp; Animals&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;News &amp; Politics&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Gaming&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Comedy&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Trailers&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Howto &amp; Style&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Science &amp; Technology&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Shows&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Travel &amp; Events&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Nonprofits &amp; Activism&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Movies&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Education&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Sports&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;People &amp; Blogs&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Entertainment&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Estados Unidos Mexicanos&quot;' />
+      </semantic-values>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='Top N' datatype='integer' name='[Parámetro 1]' param-domain-type='any' role='measure' type='quantitative' value='10'>
+          <calculation class='tableau' formula='10' />
+        </column>
+      </datasource-dependencies>
+      <object-graph>
+        <objects>
+          <object caption='trending_by_time.csv' id='trending_by_time.csv_48D5B5C1E0054270AC54B1099E4CBE77'>
+            <properties context=''>
+              <relation connection='textscan.0imkkac1rvzq6y13783w41wxu0w6' name='trending_by_time.csv' table='[trending_by_time#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='es_MX' separator=','>
+                  <column datatype='integer' name='record_id' ordinal='0' />
+                  <column datatype='string' name='region' ordinal='1' />
+                  <column datatype='date' name='trending_date' ordinal='2' />
+                  <column datatype='string' name='category_title' ordinal='3' />
+                  <column datatype='integer' name='videos_count' ordinal='4' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <shared-views>
+    <shared-view name='federated.0vzmxjm022nhje14q9m9t0v9xodv'>
+      <datasources>
+        <datasource caption='trending_by_time' name='federated.0vzmxjm022nhje14q9m9t0v9xodv' />
+      </datasources>
+      <datasource-dependencies datasource='federated.0vzmxjm022nhje14q9m9t0v9xodv'>
+        <column caption='Fecha Día' datatype='date' name='[Calculation_1648036040613335050]' role='dimension' type='ordinal'>
+          <calculation class='tableau' formula='DATE([trending_date])' />
+        </column>
+        <column-instance column='[Calculation_1648036040613335050]' derivation='None' name='[none:Calculation_1648036040613335050:qk]' pivot='key' type='quantitative' />
+        <column-instance column='[region]' derivation='None' name='[none:region:nk]' pivot='key' type='nominal' />
+        <column caption='Region' datatype='string' name='[region]' role='dimension' type='nominal' />
+      </datasource-dependencies>
+      <filter class='quantitative' column='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:Calculation_1648036040613335050:qk]' included-values='all' />
+      <filter class='categorical' column='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:region:nk]'>
+        <groupfilter function='member' level='[none:region:nk]' member='&quot;United States&quot;' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+      </filter>
+    </shared-view>
+  </shared-views>
+  <worksheets>
+    <worksheet name='01 - Historial de tendencias'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='trending_by_time' name='federated.0vzmxjm022nhje14q9m9t0v9xodv' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0vzmxjm022nhje14q9m9t0v9xodv'>
+            <column caption='Fecha Día' datatype='date' name='[Calculation_1648036040613335050]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='DATE([trending_date])' />
+            </column>
+            <column caption='Category Title' datatype='string' name='[category_title]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_1648036040613335050]' derivation='None' name='[none:Calculation_1648036040613335050:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[category_title]' derivation='None' name='[none:category_title:nk]' pivot='key' type='nominal' />
+            <column-instance column='[region]' derivation='None' name='[none:region:nk]' pivot='key' type='nominal' />
+            <column-instance column='[trending_date]' derivation='None' name='[none:trending_date:qk]' pivot='key' type='quantitative' />
+            <column caption='Region' datatype='string' name='[region]' role='dimension' type='nominal' />
+            <column-instance column='[videos_count]' derivation='Sum' name='[sum:videos_count:qk]' pivot='key' type='quantitative' />
+            <column caption='Trending Date' datatype='datetime' name='[trending_date]' role='dimension' type='ordinal' />
+            <column caption='Videos Count' datatype='integer' name='[videos_count]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:category_title:nk]' kind='hide'>
+            <groupfilter function='except' user:ui-domain='relevant' user:ui-enumeration='exclusive' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:category_title:nk]' />
+              <groupfilter function='union'>
+                <groupfilter function='member' level='[none:category_title:nk]' member='&quot;Howto &amp; Style&quot;' />
+                <groupfilter function='member' level='[none:category_title:nk]' member='&quot;People &amp; Blogs&quot;' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <computed-sort column='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:category_title:nk]' direction='DESC' using='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[sum:videos_count:qk]' />
+          <slices>
+            <column>[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:region:nk]</column>
+            <column>[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:Calculation_1648036040613335050:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[sum:videos_count:qk]' scope='rows' value='Videos' />
+            <format attr='title' class='0' field='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:trending_date:qk]' scope='cols' value='' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[sum:videos_count:qk]' value='N' />
+          </style-rule>
+          <style-rule element='refline'>
+            <format attr='fill-above' id='refline0' value='#00000000' />
+            <format attr='fill-below' id='refline0' value='#00000000' />
+            <format attr='line-visibility' id='refline0' value='on' />
+            <format attr='line-pattern-only' id='refline0' value='dotted' />
+            <format attr='stroke-color' id='refline0' value='#b4b4b44b' />
+          </style-rule>
+          <style-rule element='legend-title-text'>
+            <format attr='color' field='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:category_title:nk]' value='Categoría'>
+              <formatted-text>
+                <run>Categoría</run>
+              </formatted-text>
+            </format>
+          </style-rule>
+          <style-rule element='quick-filter'>
+            <format attr='title' field='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:region:nk]' value='País'>
+              <formatted-text>
+                <run>País</run>
+              </formatted-text>
+            </format>
+            <format attr='title' field='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:Calculation_1648036040613335050:qk]' value='Fecha'>
+              <formatted-text>
+                <run>Fecha</run>
+              </formatted-text>
+            </format>
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Area' />
+            <encodings>
+              <color column='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:category_title:nk]' />
+              <text column='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:category_title:nk]' />
+              <lod column='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[:Measure Names]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#757575'><![CDATA[Fecha:	<[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:trending_date:qk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#757575'>Categoría:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:category_title:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#757575'>Videos:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.0vzmxjm022nhje14q9m9t0v9xodv].[sum:videos_count:qk]>]]></run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-range-scope' value='table' />
+                <format attr='mark-labels-cull' value='false' />
+                <format attr='mark-labels-mode' value='highlight' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0vzmxjm022nhje14q9m9t0v9xodv].[sum:videos_count:qk]</rows>
+        <cols>[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:trending_date:qk]</cols>
+      </table>
+      <simple-id uuid='{D4E773B2-671E-4CD7-9DFC-FF0F0E378851}' />
+    </worksheet>
+    <worksheet name='02 - Tendencias por país'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>02 - Tendencias de videos por país %</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='trending_by_time' name='federated.0vzmxjm022nhje14q9m9t0v9xodv' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0vzmxjm022nhje14q9m9t0v9xodv'>
+            <column caption='Fecha Día' datatype='date' name='[Calculation_1648036040613335050]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='DATE([trending_date])' />
+            </column>
+            <column-instance column='[Calculation_1648036040613335050]' derivation='None' name='[none:Calculation_1648036040613335050:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[region]' derivation='None' name='[none:region:nk]' pivot='key' type='nominal' />
+            <column-instance column='[videos_count]' derivation='Sum' name='[pcto:sum:videos_count:qk]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Rows' type='PctTotal' />
+            </column-instance>
+            <column caption='Region' datatype='string' name='[region]' role='dimension' type='nominal' />
+            <column caption='Trending Date' datatype='datetime' name='[trending_date]' role='dimension' type='ordinal' />
+            <column caption='Videos Count' datatype='integer' name='[videos_count]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:region:nk]</column>
+            <column>[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:Calculation_1648036040613335050:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' value='245' />
+            <format attr='height' value='104' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Pie' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:region:nk]' />
+              <wedge-size column='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[pcto:sum:videos_count:qk]' />
+              <text column='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:region:nk]' />
+              <text column='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[pcto:sum:videos_count:qk]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#757575'>País:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:region:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#757575'>Participación:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.0vzmxjm022nhje14q9m9t0v9xodv].[pcto:sum:videos_count:qk]>]]></run>
+              </formatted-text>
+            </customized-tooltip>
+            <customized-label>
+              <formatted-text>
+                <run bold='true' fontalignment='0'><![CDATA[<[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:region:nk]>]]></run>
+                <run fontalignment='0'>Æ&#10;</run>
+                <run bold='true' fontalignment='0'><![CDATA[<[federated.0vzmxjm022nhje14q9m9t0v9xodv].[pcto:sum:videos_count:qk]>]]></run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='size' value='1.3953038454055786' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{6532634A-3C36-4C0D-B51B-E42D0D8FD06C}' />
+    </worksheet>
+    <worksheet name='03 - Historial por categoría %'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>03 - Historial de tendencias por categoría (%)</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='trending_by_time' name='federated.0vzmxjm022nhje14q9m9t0v9xodv' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0vzmxjm022nhje14q9m9t0v9xodv'>
+            <column caption='Fecha Día' datatype='date' name='[Calculation_1648036040613335050]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='DATE([trending_date])' />
+            </column>
+            <column caption='Category Title' datatype='string' name='[category_title]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_1648036040613335050]' derivation='None' name='[none:Calculation_1648036040613335050:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[category_title]' derivation='None' name='[none:category_title:nk]' pivot='key' type='nominal' />
+            <column-instance column='[region]' derivation='None' name='[none:region:nk]' pivot='key' type='nominal' />
+            <column-instance column='[videos_count]' derivation='Sum' name='[pcto:sum:videos_count:qk]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Rows' type='PctTotal' />
+            </column-instance>
+            <column caption='Region' datatype='string' name='[region]' role='dimension' type='nominal' />
+            <column-instance column='[videos_count]' derivation='Sum' name='[sum:videos_count:qk]' pivot='key' type='quantitative' />
+            <column caption='Trending Date' datatype='datetime' name='[trending_date]' role='dimension' type='ordinal' />
+            <column caption='Videos Count' datatype='integer' name='[videos_count]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <computed-sort column='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:category_title:nk]' direction='DESC' using='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[sum:videos_count:qk]' />
+          <slices>
+            <column>[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:region:nk]</column>
+            <column>[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:Calculation_1648036040613335050:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[pcto:sum:videos_count:qk]' scope='rows' value='' />
+            <format attr='title' class='0' field='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:Calculation_1648036040613335050:qk]' scope='cols' value='' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[pcto:sum:videos_count:qk]' value='p0.0%' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Area' />
+            <encodings>
+              <color column='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:category_title:nk]' />
+              <text column='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:category_title:nk]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#757575'>Fecha:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:Calculation_1648036040613335050:qk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#757575'>Categoría&#9;</run>
+                <run bold='true'><![CDATA[<[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:category_title:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#757575'>% Participación:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.0vzmxjm022nhje14q9m9t0v9xodv].[pcto:sum:videos_count:qk]>]]></run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='false' />
+                <format attr='mark-labels-mode' value='selection' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0vzmxjm022nhje14q9m9t0v9xodv].[pcto:sum:videos_count:qk]</rows>
+        <cols>[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:Calculation_1648036040613335050:qk]</cols>
+      </table>
+      <simple-id uuid='{F60713BE-7F3D-4FC5-B09D-CB84351690C9}' />
+    </worksheet>
+    <worksheet name='04 - País por categoría (abs)'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>04 - País por categoría</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='trending_by_time' name='federated.0vzmxjm022nhje14q9m9t0v9xodv' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0vzmxjm022nhje14q9m9t0v9xodv'>
+            <column caption='Fecha Día' datatype='date' name='[Calculation_1648036040613335050]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='DATE([trending_date])' />
+            </column>
+            <column caption='Category Title' datatype='string' name='[category_title]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_1648036040613335050]' derivation='None' name='[none:Calculation_1648036040613335050:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[category_title]' derivation='None' name='[none:category_title:nk]' pivot='key' type='nominal' />
+            <column-instance column='[region]' derivation='None' name='[none:region:nk]' pivot='key' type='nominal' />
+            <column caption='Region' datatype='string' name='[region]' role='dimension' type='nominal' />
+            <column-instance column='[videos_count]' derivation='Sum' name='[sum:videos_count:qk]' pivot='key' type='quantitative' />
+            <column caption='Trending Date' datatype='datetime' name='[trending_date]' role='dimension' type='ordinal' />
+            <column caption='Videos Count' datatype='integer' name='[videos_count]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <computed-sort column='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:category_title:nk]' direction='DESC' using='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[sum:videos_count:qk]' />
+          <computed-sort column='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:region:nk]' direction='DESC' using='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[sum:videos_count:qk]' />
+          <slices>
+            <column>[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:region:nk]</column>
+            <column>[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:Calculation_1648036040613335050:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:region:nk]' value='113' />
+            <format attr='cell-w' value='20' />
+            <format attr='cell-h' value='20' />
+            <format attr='cell' value='20' />
+            <format attr='cell-q' value='100' />
+            <format attr='font-size' data-class='total' scope='cols' value='10' />
+            <format attr='font-size' data-class='total' scope='rows' value='10' />
+            <format attr='color' data-class='total' scope='rows' value='#000000' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[sum:videos_count:qk]' palette='orange_blue_diverging_10_0' symmetric='false' type='interpolated' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='background-color' data-class='subtotal' scope='rows' value='#e6e6e6' />
+            <format attr='background-color' data-class='subtotal' scope='cols' value='#e6e6e6' />
+          </style-rule>
+          <style-rule element='table-div'>
+            <format attr='line-visibility' scope='cols' value='on' />
+            <format attr='line-pattern-only' scope='cols' value='solid' />
+            <format attr='stroke-size' scope='cols' value='3' />
+            <format attr='stroke-color' scope='cols' value='#d4d4d4' />
+          </style-rule>
+          <style-rule element='header-div'>
+            <format attr='stroke-size' scope='cols' value='3' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Square' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[sum:videos_count:qk]' />
+              <size column='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[sum:videos_count:qk]' />
+              <text column='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[sum:videos_count:qk]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#757575'>País:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:region:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#757575'>Categoría:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:category_title:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#757575'>Videos en tendencia:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.0vzmxjm022nhje14q9m9t0v9xodv].[sum:videos_count:qk]>]]></run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='1.5492265224456787' />
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-transparency' value='255' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows total='true'>[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:category_title:nk]</rows>
+        <cols total='true'>[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:region:nk]</cols>
+      </table>
+      <simple-id uuid='{E5D95DD5-94DC-4241-9432-F030D4081940}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard enable-sort-zone-taborder='true' name='Dashboard -Tendencias'>
+      <style />
+      <size sizing-mode='automatic' />
+      <datasources>
+        <datasource caption='trending_by_time' name='federated.0vzmxjm022nhje14q9m9t0v9xodv' />
+      </datasources>
+      <datasource-dependencies datasource='federated.0vzmxjm022nhje14q9m9t0v9xodv'>
+        <column caption='Fecha Día' datatype='date' name='[Calculation_1648036040613335050]' role='dimension' type='ordinal'>
+          <calculation class='tableau' formula='DATE([trending_date])' />
+        </column>
+        <column-instance column='[Calculation_1648036040613335050]' derivation='None' name='[none:Calculation_1648036040613335050:qk]' pivot='key' type='quantitative' />
+        <column-instance column='[region]' derivation='None' name='[none:region:nk]' pivot='key' type='nominal' />
+        <column caption='Region' datatype='string' name='[region]' role='dimension' type='nominal' />
+      </datasource-dependencies>
+      <zones>
+        <zone h='100000' id='6' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='37312' id='7' param='horz' type-v2='layout-flow' w='49201' x='787' y='16243'>
+            <zone h='37312' id='9' name='01 - Historial de tendencias' w='49201' x='787' y='16243'>
+              <layout-cache has-max-size-h='true' maxheight='44' minheight='44' minwidth='159' type-h='scalable' type-w='scalable' />
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='4' />
+              </zone-style>
+            </zone>
+          </zone>
+          <zone h='37312' id='8' param='horz' type-v2='layout-flow' w='33581' x='49988' y='16243'>
+            <zone h='33152' id='12' name='02 - Tendencias por país' w='33581' x='49988' y='16243'>
+              <layout-cache fixed-size-h='175' fixed-size-w='245' type-h='fixed' type-w='fixed' />
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='4' />
+              </zone-style>
+            </zone>
+          </zone>
+          <zone h='44996' id='15' name='03 - Historial por categoría %' w='49201' x='787' y='53555'>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone h='44996' id='18' name='04 - País por categoría (abs)' w='49225' x='49988' y='53555'>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone forceUpdate='true' h='14794' id='19' type-v2='text' w='49201' x='787' y='1449'>
+            <formatted-text>
+              <run bold='true' fontsize='16'>Tablero - Tendencias de videos</run>
+            </formatted-text>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone h='14794' id='20' param='horz' type-v2='layout-flow' w='49225' x='49988' y='1449'>
+            <zone h='14794' id='21' name='01 - Historial de tendencias' param='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:Calculation_1648036040613335050:qk]' type-v2='filter' values='database' w='32705' x='49988' y='1449'>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='4' />
+              </zone-style>
+            </zone>
+            <zone h='14794' id='22' mode='checkdropdown' name='01 - Historial de tendencias' param='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:region:nk]' type-v2='filter' values='database' w='16520' x='82693' y='1449'>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='4' />
+              </zone-style>
+            </zone>
+          </zone>
+          <zone h='37312' id='25' name='01 - Historial de tendencias' pane-specification-id='2' param='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:category_title:nk]' type-v2='color' w='15644' x='83569' y='16243'>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='1400' minheight='1400' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='39' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='97102' id='38' param='vert' type-v2='layout-flow' w='98426' x='787' y='1449'>
+                <zone forceUpdate='true' h='14794' id='19' type-v2='text' w='49201' x='787' y='1449'>
+                  <formatted-text>
+                    <run bold='true' fontsize='16'>Tablero - Tendencias de videos</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='14794' id='21' name='01 - Historial de tendencias' param='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:Calculation_1648036040613335050:qk]' type-v2='filter' values='database' w='32705' x='49988' y='1449'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='14794' id='22' mode='checkdropdown' name='01 - Historial de tendencias' param='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:region:nk]' type-v2='filter' values='database' w='16520' x='82693' y='1449'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='37312' id='9' is-fixed='true' name='01 - Historial de tendencias' w='49201' x='787' y='16243'>
+                  <layout-cache has-max-size-h='true' maxheight='44' minheight='44' minwidth='159' type-h='scalable' type-w='scalable' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='37312' id='25' name='01 - Historial de tendencias' pane-specification-id='2' param='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:category_title:nk]' type-v2='color' w='15644' x='83569' y='16243'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='257' h='33152' id='12' is-fixed='true' name='02 - Tendencias por país' w='33581' x='49988' y='16243'>
+                  <layout-cache fixed-size-h='175' fixed-size-w='245' type-h='fixed' type-w='fixed' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='44996' id='15' is-fixed='true' name='03 - Historial por categoría %' w='49201' x='787' y='53555'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='44996' id='18' is-fixed='true' name='04 - País por categoría (abs)' w='49225' x='49988' y='53555'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{F364DAF1-AE1B-4371-92AB-824F02F7F45B}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='30'>
+    <window class='worksheet' name='01 - Historial de tendencias'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='175'>
+            <card param='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:Calculation_1648036040613335050:qk]' show-domain='false' show-null-ctrls='false' type='filter' />
+            <card mode='checkdropdown' param='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:region:nk]' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{7C8F65CE-E0AB-4768-AD82-57C9244BA71F}' />
+    </window>
+    <window class='worksheet' name='02 - Tendencias por país'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{C7BDA1A6-BB86-4A42-8574-DE23E636B43A}' />
+    </window>
+    <window class='worksheet' name='03 - Historial por categoría %'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='175'>
+            <card param='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:Calculation_1648036040613335050:qk]' show-domain='false' show-null-ctrls='false' type='filter' />
+            <card mode='checkdropdown' param='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:region:nk]' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{0B83E147-8367-4590-B8A9-3A91A9E226FE}' />
+    </window>
+    <window class='worksheet' name='04 - País por categoría (abs)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='175'>
+            <card param='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:Calculation_1648036040613335050:qk]' show-domain='false' show-null-ctrls='false' type='filter' />
+            <card mode='checkdropdown' param='[federated.0vzmxjm022nhje14q9m9t0v9xodv].[none:region:nk]' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{45441DF5-1E86-4280-8D5E-6C1D187C66CA}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Dashboard -Tendencias'>
+      <viewpoints>
+        <viewpoint name='01 - Historial de tendencias'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='02 - Tendencias por país' />
+        <viewpoint name='03 - Historial por categoría %'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='04 - País por categoría (abs)' />
+      </viewpoints>
+      <active id='22' />
+      <simple-id uuid='{DCD64369-ABE2-4F01-AA61-9126564C6D9F}' />
+    </window>
+  </windows>
+</workbook>
