@@ -1,0 +1,882 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20252.25.0818.1050                               -->
+<workbook original-version='18.1' source-build='2025.2.2 (20252.25.0818.1050)' source-platform='win' version='18.1' xml:base='https://public.tableau.com' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AccessibleZoneTabOrder />
+    <AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <SortTagCleanup />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+    <ZoneBackgroundTransparency />
+  </document-format-change-manifest>
+  <repository-location id='S14_17591692854280' path='/workbooks' revision='1.1' />
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
+      <aliases enabled='yes' />
+      <column caption='Tipo de duración' datatype='string' name='[Parámetro 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;Solo conversación&quot;'>
+        <calculation class='tableau' formula='&quot;Solo conversación&quot;' />
+        <members>
+          <member value='&quot;Solo conversación&quot;' />
+          <member value='&quot;Total (incluye espera)&quot;' />
+        </members>
+      </column>
+      <column caption='Ancho de bin (s)' datatype='integer' name='[Parámetro 2]' param-domain-type='any' role='measure' type='quantitative' value='2000'>
+        <calculation class='tableau' formula='2000' />
+      </column>
+    </datasource>
+    <datasource caption='telecom_dataset_us' inline='true' name='federated.1jyn97d1le9qpg1a2pd5o0zd8e3d' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='telecom_dataset_us' name='textscan.0bdo6ml0heop651bqsch51o0e6n8'>
+            <connection class='textscan' directory='C:/Git/vehicles_env/datasets' filename='telecom_dataset_us.csv' password='' server='' workgroup-auth-mode='as-is' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.0bdo6ml0heop651bqsch51o0e6n8' name='telecom_dataset_us.csv' table='[telecom_dataset_us#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='es_MX' separator=','>
+            <column datatype='integer' name='user_id' ordinal='0' />
+            <column datatype='date' date-parse-format='yyyy-MM-dd HH:mm:ssZZZZZ' name='date' ordinal='1' />
+            <column datatype='string' name='direction' ordinal='2' />
+            <column datatype='boolean' name='internal' ordinal='3' />
+            <column datatype='integer' name='operator_id' ordinal='4' />
+            <column datatype='boolean' name='is_missed_call' ordinal='5' />
+            <column datatype='integer' name='calls_count' ordinal='6' />
+            <column datatype='integer' name='call_duration' ordinal='7' />
+            <column datatype='integer' name='total_call_duration' ordinal='8' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[telecom_dataset_us.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;es&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;es_MX&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>user_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[user_id]</local-name>
+            <parent-name>[telecom_dataset_us.csv]</parent-name>
+            <remote-alias>user_id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[date]</local-name>
+            <parent-name>[telecom_dataset_us.csv]</parent-name>
+            <remote-alias>date</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LES_RES' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>direction</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[direction]</local-name>
+            <parent-name>[telecom_dataset_us.csv]</parent-name>
+            <remote-alias>direction</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LES_RES' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>internal</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[internal]</local-name>
+            <parent-name>[telecom_dataset_us.csv]</parent-name>
+            <remote-alias>internal</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>operator_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[operator_id]</local-name>
+            <parent-name>[telecom_dataset_us.csv]</parent-name>
+            <remote-alias>operator_id</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>is_missed_call</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[is_missed_call]</local-name>
+            <parent-name>[telecom_dataset_us.csv]</parent-name>
+            <remote-alias>is_missed_call</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>calls_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[calls_count]</local-name>
+            <parent-name>[telecom_dataset_us.csv]</parent-name>
+            <remote-alias>calls_count</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>call_duration</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[call_duration]</local-name>
+            <parent-name>[telecom_dataset_us.csv]</parent-name>
+            <remote-alias>call_duration</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>total_call_duration</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[total_call_duration]</local-name>
+            <parent-name>[telecom_dataset_us.csv]</parent-name>
+            <remote-alias>total_call_duration</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Dirección (ES)' datatype='string' name='[Calculation_1309421649322102793]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF [direction] = &apos;in&apos; THEN &apos;Entrante&apos;&#13;&#10;ELSEIF [direction] = &apos;out&apos; THEN &apos;Saliente&apos;&#13;&#10;ELSE &apos;Otro&apos; END' />
+      </column>
+      <column caption='Tipo de llamada' datatype='string' name='[Calculation_1309421649322250250]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF [internal] THEN &apos;Interna&apos; ELSE &apos;Externa&apos; END' />
+      </column>
+      <column caption='Estado' datatype='string' name='[Calculation_1309421649322430475]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF [is_missed_call] THEN &apos;Perdida&apos; ELSE &apos;Contestada&apos; END' />
+      </column>
+      <column caption='Duración seleccionada' datatype='integer' name='[Calculation_1309421649322930188]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF [Parameters].[Parámetro 1] = &apos;Solo conversación&apos; THEN [call_duration]&#13;&#10;ELSE [total_call_duration] END' />
+      </column>
+      <column aggregation='Sum' caption='Bin de duración (personalizado)' datatype='integer' name='[Calculation_1309421649323261965]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='INT([Calculation_1309421649322930188] / [Parameters].[Parámetro 2]) * [Parameters].[Parámetro 2]' />
+      </column>
+      <column caption='Label-Bin' datatype='string' name='[Calculation_1309421649323876366]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='STR([Calculation_1309421649323261965]) + &apos;–&apos; +&#13;&#10;STR([Calculation_1309421649323261965] + [Parameters].[Parámetro 2]) + &apos; s&apos;' />
+      </column>
+      <column caption='Calls Count (bin%)' datatype='integer' name='[Calls Count (copia)_1309421649349181455]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[calls_count]' />
+      </column>
+      <column caption='telecom_dataset_us.csv' datatype='table' name='[__tableau_internal_object_id__].[telecom_dataset_us.csv_93F0E802FF574775B675492B55C2E72C]' role='measure' type='quantitative' />
+      <column caption='Call Duration' datatype='integer' name='[call_duration]' role='measure' type='quantitative' />
+      <column caption='Calls Count' datatype='integer' name='[calls_count]' role='measure' type='quantitative' />
+      <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+      <column caption='Direction' datatype='string' name='[direction]' role='dimension' type='nominal' />
+      <column caption='Internal' datatype='boolean' name='[internal]' role='dimension' type='nominal' />
+      <column caption='Is Missed Call' datatype='boolean' name='[is_missed_call]' role='dimension' type='nominal' />
+      <column caption='Operator Id' datatype='integer' name='[operator_id]' role='dimension' type='ordinal' />
+      <column caption='Total Call Duration' datatype='integer' name='[total_call_duration]' role='measure' type='quantitative' />
+      <column caption='User Id' datatype='integer' name='[user_id]' role='dimension' type='ordinal' />
+      <column-instance column='[Calculation_1309421649322250250]' derivation='None' name='[none:Calculation_1309421649322250250:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Calculation_1309421649322430475]' derivation='None' name='[none:Calculation_1309421649322430475:nk]' pivot='key' type='nominal' />
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='es_ES' class='hyper' dbname='C:/Users/DISPON~1/AppData/Local/Temp/TableauTemp/#TableauTemp_0bsse9n07jmaac1atlx5u03k3wqy.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='' username='tableau_internal_user'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>user_id</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[user_id]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>user_id</remote-alias>
+              <ordinal>0</ordinal>
+              <family>telecom_dataset_us.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>597</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[date]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>date</remote-alias>
+              <ordinal>1</ordinal>
+              <family>telecom_dataset_us.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>150</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>direction</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[direction]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>direction</remote-alias>
+              <ordinal>2</ordinal>
+              <family>telecom_dataset_us.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LES_RES' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>internal</remote-name>
+              <remote-type>11</remote-type>
+              <local-name>[internal]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>internal</remote-alias>
+              <ordinal>3</ordinal>
+              <family>telecom_dataset_us.csv</family>
+              <local-type>boolean</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>operator_id</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[operator_id]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>operator_id</remote-alias>
+              <ordinal>4</ordinal>
+              <family>telecom_dataset_us.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1907</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>is_missed_call</remote-name>
+              <remote-type>11</remote-type>
+              <local-name>[is_missed_call]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>is_missed_call</remote-alias>
+              <ordinal>5</ordinal>
+              <family>telecom_dataset_us.csv</family>
+              <local-type>boolean</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>calls_count</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[calls_count]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>calls_count</remote-alias>
+              <ordinal>6</ordinal>
+              <family>telecom_dataset_us.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>338</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>call_duration</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[call_duration]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>call_duration</remote-alias>
+              <ordinal>7</ordinal>
+              <family>telecom_dataset_us.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>5171</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>total_call_duration</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[total_call_duration]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>total_call_duration</remote-alias>
+              <ordinal>8</ordinal>
+              <family>telecom_dataset_us.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>4225</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:Calculation_1309421649322430475:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;Contestada&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Perdida&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:Calculation_1309421649322250250:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;Externa&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Interna&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Estados Unidos Mexicanos&quot;' />
+      </semantic-values>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='Tipo de duración' datatype='string' name='[Parámetro 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;Solo conversación&quot;'>
+          <calculation class='tableau' formula='&quot;Solo conversación&quot;' />
+        </column>
+        <column caption='Ancho de bin (s)' datatype='integer' name='[Parámetro 2]' param-domain-type='any' role='measure' type='quantitative' value='2000'>
+          <calculation class='tableau' formula='2000' />
+        </column>
+      </datasource-dependencies>
+      <object-graph>
+        <objects>
+          <object caption='telecom_dataset_us.csv' id='telecom_dataset_us.csv_93F0E802FF574775B675492B55C2E72C'>
+            <properties context=''>
+              <relation connection='textscan.0bdo6ml0heop651bqsch51o0e6n8' name='telecom_dataset_us.csv' table='[telecom_dataset_us#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='es_MX' separator=','>
+                  <column datatype='integer' name='user_id' ordinal='0' />
+                  <column datatype='date' date-parse-format='yyyy-MM-dd HH:mm:ssZZZZZ' name='date' ordinal='1' />
+                  <column datatype='string' name='direction' ordinal='2' />
+                  <column datatype='boolean' name='internal' ordinal='3' />
+                  <column datatype='integer' name='operator_id' ordinal='4' />
+                  <column datatype='boolean' name='is_missed_call' ordinal='5' />
+                  <column datatype='integer' name='calls_count' ordinal='6' />
+                  <column datatype='integer' name='call_duration' ordinal='7' />
+                  <column datatype='integer' name='total_call_duration' ordinal='8' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <shared-views>
+    <shared-view name='federated.1jyn97d1le9qpg1a2pd5o0zd8e3d'>
+      <datasources>
+        <datasource caption='telecom_dataset_us' name='federated.1jyn97d1le9qpg1a2pd5o0zd8e3d' />
+      </datasources>
+      <datasource-dependencies datasource='federated.1jyn97d1le9qpg1a2pd5o0zd8e3d'>
+        <column caption='Dirección (ES)' datatype='string' name='[Calculation_1309421649322102793]' role='dimension' type='nominal'>
+          <calculation class='tableau' formula='IF [direction] = &apos;in&apos; THEN &apos;Entrante&apos;&#13;&#10;ELSEIF [direction] = &apos;out&apos; THEN &apos;Saliente&apos;&#13;&#10;ELSE &apos;Otro&apos; END' />
+        </column>
+        <column-instance column='[Calculation_1309421649322102793]' derivation='None' name='[none:Calculation_1309421649322102793:nk]' pivot='key' type='nominal' />
+      </datasource-dependencies>
+      <filter class='categorical' column='[federated.1jyn97d1le9qpg1a2pd5o0zd8e3d].[none:Calculation_1309421649322102793:nk]'>
+        <groupfilter function='member' level='[none:Calculation_1309421649322102793:nk]' member='&quot;Entrante&quot;' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+      </filter>
+    </shared-view>
+  </shared-views>
+  <worksheets>
+    <worksheet name='Hist - Duración'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontcolor='#000000' fontname='Benton Sans Book'><![CDATA[Histograma de duración de llamadas (<[federated.1jyn97d1le9qpg1a2pd5o0zd8e3d].[none:Calculation_1309421649322102793:nk]>)]]></run>
+            <run>Æ&#10;</run>
+            <run fontcolor='#000000' fontname='Benton Sans Book'>(rango de </run>
+            <run fontcolor='#000000'>&lt;[Parameters].[Parámetro 2]&gt;</run>
+            <run fontcolor='#000000' fontname='Benton Sans Book'> segundos)</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='telecom_dataset_us' name='federated.1jyn97d1le9qpg1a2pd5o0zd8e3d' />
+            <datasource caption='Parámetros' name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Tipo de duración' datatype='string' name='[Parámetro 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;Solo conversación&quot;'>
+              <calculation class='tableau' formula='&quot;Solo conversación&quot;' />
+            </column>
+            <column caption='Ancho de bin (s)' datatype='integer' name='[Parámetro 2]' param-domain-type='any' role='measure' type='quantitative' value='2000'>
+              <calculation class='tableau' formula='2000' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.1jyn97d1le9qpg1a2pd5o0zd8e3d'>
+            <column caption='Dirección (ES)' datatype='string' name='[Calculation_1309421649322102793]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [direction] = &apos;in&apos; THEN &apos;Entrante&apos;&#13;&#10;ELSEIF [direction] = &apos;out&apos; THEN &apos;Saliente&apos;&#13;&#10;ELSE &apos;Otro&apos; END' />
+            </column>
+            <column caption='Estado' datatype='string' name='[Calculation_1309421649322430475]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [is_missed_call] THEN &apos;Perdida&apos; ELSE &apos;Contestada&apos; END' />
+            </column>
+            <column caption='Duración seleccionada' datatype='integer' name='[Calculation_1309421649322930188]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF [Parameters].[Parámetro 1] = &apos;Solo conversación&apos; THEN [call_duration]&#13;&#10;ELSE [total_call_duration] END' />
+            </column>
+            <column aggregation='Sum' caption='Bin de duración (personalizado)' datatype='integer' name='[Calculation_1309421649323261965]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='INT([Calculation_1309421649322930188] / [Parameters].[Parámetro 2]) * [Parameters].[Parámetro 2]' />
+            </column>
+            <column caption='Label-Bin' datatype='string' name='[Calculation_1309421649323876366]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='STR([Calculation_1309421649323261965]) + &apos;–&apos; +&#13;&#10;STR([Calculation_1309421649323261965] + [Parameters].[Parámetro 2]) + &apos; s&apos;' />
+            </column>
+            <column caption='Calls Count (bin%)' datatype='integer' name='[Calls Count (copia)_1309421649349181455]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[calls_count]' />
+            </column>
+            <column-instance column='[Calculation_1309421649323261965]' derivation='Avg' name='[avg:Calculation_1309421649323261965:qk]' pivot='key' type='quantitative' />
+            <column caption='Call Duration' datatype='integer' name='[call_duration]' role='measure' type='quantitative' />
+            <column caption='Calls Count' datatype='integer' name='[calls_count]' role='measure' type='quantitative' />
+            <column caption='Direction' datatype='string' name='[direction]' role='dimension' type='nominal' />
+            <column caption='Is Missed Call' datatype='boolean' name='[is_missed_call]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_1309421649322102793]' derivation='None' name='[none:Calculation_1309421649322102793:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1309421649322430475]' derivation='None' name='[none:Calculation_1309421649322430475:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1309421649323876366]' derivation='None' name='[none:Calculation_1309421649323876366:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calls Count (copia)_1309421649349181455]' derivation='Sum' name='[pcto:sum:Calls Count (copia)_1309421649349181455:qk:2]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='CellInPane' type='PctTotal' />
+            </column-instance>
+            <column-instance column='[calls_count]' derivation='Sum' name='[sum:calls_count:qk]' pivot='key' type='quantitative' />
+            <column caption='Total Call Duration' datatype='integer' name='[total_call_duration]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <computed-sort column='[federated.1jyn97d1le9qpg1a2pd5o0zd8e3d].[none:Calculation_1309421649323876366:nk]' direction='ASC' using='[federated.1jyn97d1le9qpg1a2pd5o0zd8e3d].[avg:Calculation_1309421649323261965:qk]' />
+          <slices>
+            <column>[federated.1jyn97d1le9qpg1a2pd5o0zd8e3d].[none:Calculation_1309421649322102793:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1jyn97d1le9qpg1a2pd5o0zd8e3d].[sum:calls_count:qk]' scope='rows' value='Número de llamadas' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.1jyn97d1le9qpg1a2pd5o0zd8e3d].[pcto:sum:Calls Count (copia)_1309421649349181455:qk:2]' value='p0.0%' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='stroke-size' scope='rows' value='1' />
+            <format attr='line-visibility' scope='rows' value='on' />
+            <format attr='line-pattern-only' scope='rows' value='dotted' />
+          </style-rule>
+          <style-rule element='zeroline'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.1jyn97d1le9qpg1a2pd5o0zd8e3d].[none:Calculation_1309421649322430475:nk]' />
+              <tooltip column='[federated.1jyn97d1le9qpg1a2pd5o0zd8e3d].[pcto:sum:Calls Count (copia)_1309421649349181455:qk:2]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run bold='true'><![CDATA[Duración (bin): <[federated.1jyn97d1le9qpg1a2pd5o0zd8e3d].[none:Calculation_1309421649323876366:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run bold='true'><![CDATA[Estado: <[federated.1jyn97d1le9qpg1a2pd5o0zd8e3d].[none:Calculation_1309421649322430475:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run bold='true'><![CDATA[Llamadas: <[federated.1jyn97d1le9qpg1a2pd5o0zd8e3d].[sum:calls_count:qk]>]]></run>
+                <run>Æ&#10;</run>
+                <run bold='true'><![CDATA[% del bin: <[federated.1jyn97d1le9qpg1a2pd5o0zd8e3d].[pcto:sum:Calls Count (copia)_1309421649349181455:qk:2]>]]></run>
+                <run>Æ&#10;</run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+                <format attr='size' value='1.6591712236404419' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1jyn97d1le9qpg1a2pd5o0zd8e3d].[sum:calls_count:qk]</rows>
+        <cols>[federated.1jyn97d1le9qpg1a2pd5o0zd8e3d].[none:Calculation_1309421649323876366:nk]</cols>
+      </table>
+      <simple-id uuid='{19E729D1-EC16-4D03-90AC-E1910A70D2A7}' />
+    </worksheet>
+    <worksheet name='Pie - Interna vs Externa'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Participación (Internas vs Externas)</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='telecom_dataset_us' name='federated.1jyn97d1le9qpg1a2pd5o0zd8e3d' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1jyn97d1le9qpg1a2pd5o0zd8e3d'>
+            <column caption='Dirección (ES)' datatype='string' name='[Calculation_1309421649322102793]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [direction] = &apos;in&apos; THEN &apos;Entrante&apos;&#13;&#10;ELSEIF [direction] = &apos;out&apos; THEN &apos;Saliente&apos;&#13;&#10;ELSE &apos;Otro&apos; END' />
+            </column>
+            <column caption='Tipo de llamada' datatype='string' name='[Calculation_1309421649322250250]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [internal] THEN &apos;Interna&apos; ELSE &apos;Externa&apos; END' />
+            </column>
+            <column caption='Calls Count' datatype='integer' name='[calls_count]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_1309421649322250250]' derivation='CountD' name='[ctd:Calculation_1309421649322250250:qk]' pivot='key' type='quantitative' />
+            <column caption='Direction' datatype='string' name='[direction]' role='dimension' type='nominal' />
+            <column caption='Internal' datatype='boolean' name='[internal]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_1309421649322102793]' derivation='None' name='[none:Calculation_1309421649322102793:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1309421649322250250]' derivation='None' name='[none:Calculation_1309421649322250250:nk]' pivot='key' type='nominal' />
+            <column-instance column='[calls_count]' derivation='Sum' name='[pcto:sum:calls_count:qk]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Rows' type='PctTotal' />
+            </column-instance>
+            <column-instance column='[calls_count]' derivation='Sum' name='[sum:calls_count:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <computed-sort column='[federated.1jyn97d1le9qpg1a2pd5o0zd8e3d].[none:Calculation_1309421649322250250:nk]' direction='DESC' using='[federated.1jyn97d1le9qpg1a2pd5o0zd8e3d].[ctd:Calculation_1309421649322250250:qk]' />
+          <slices>
+            <column>[federated.1jyn97d1le9qpg1a2pd5o0zd8e3d].[none:Calculation_1309421649322102793:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Pie' />
+            <encodings>
+              <color column='[federated.1jyn97d1le9qpg1a2pd5o0zd8e3d].[none:Calculation_1309421649322250250:nk]' />
+              <size column='[federated.1jyn97d1le9qpg1a2pd5o0zd8e3d].[sum:calls_count:qk]' />
+              <wedge-size column='[federated.1jyn97d1le9qpg1a2pd5o0zd8e3d].[sum:calls_count:qk]' />
+              <text column='[federated.1jyn97d1le9qpg1a2pd5o0zd8e3d].[pcto:sum:calls_count:qk]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run bold='true'><![CDATA[Tipo: 	<[federated.1jyn97d1le9qpg1a2pd5o0zd8e3d].[none:Calculation_1309421649322250250:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run bold='true'><![CDATA[Llamadas:	 <[federated.1jyn97d1le9qpg1a2pd5o0zd8e3d].[sum:calls_count:qk]>]]></run>
+                <run>Æ&#10;</run>
+              </formatted-text>
+            </customized-tooltip>
+            <customized-label>
+              <formatted-text>
+                <run>&lt;</run>
+                <run>[federated.1jyn97d1le9qpg1a2pd5o0zd8e3d].[pcto:sum:calls_count:qk]</run>
+                <run>&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='has-stroke' value='false' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-cull' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{A2808924-CF6A-4602-A772-FE452EEA4917}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard enable-sort-zone-taborder='true' name='Dashboard 1'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontcolor='#000000' fontname='Benton Sans Book'>Llamadas por duración y tipo</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <style />
+      <size sizing-mode='automatic' />
+      <datasources>
+        <datasource caption='Parámetros' name='Parameters' />
+        <datasource caption='telecom_dataset_us' name='federated.1jyn97d1le9qpg1a2pd5o0zd8e3d' />
+      </datasources>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='Tipo de duración' datatype='string' name='[Parámetro 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;Solo conversación&quot;'>
+          <calculation class='tableau' formula='&quot;Solo conversación&quot;' />
+          <members>
+            <member value='&quot;Solo conversación&quot;' />
+            <member value='&quot;Total (incluye espera)&quot;' />
+          </members>
+        </column>
+        <column caption='Ancho de bin (s)' datatype='integer' name='[Parámetro 2]' param-domain-type='any' role='measure' type='quantitative' value='2000'>
+          <calculation class='tableau' formula='2000' />
+        </column>
+      </datasource-dependencies>
+      <datasource-dependencies datasource='federated.1jyn97d1le9qpg1a2pd5o0zd8e3d'>
+        <column caption='Dirección (ES)' datatype='string' name='[Calculation_1309421649322102793]' role='dimension' type='nominal'>
+          <calculation class='tableau' formula='IF [direction] = &apos;in&apos; THEN &apos;Entrante&apos;&#13;&#10;ELSEIF [direction] = &apos;out&apos; THEN &apos;Saliente&apos;&#13;&#10;ELSE &apos;Otro&apos; END' />
+        </column>
+        <column-instance column='[Calculation_1309421649322102793]' derivation='None' name='[none:Calculation_1309421649322102793:nk]' pivot='key' type='nominal' />
+      </datasource-dependencies>
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='90378' id='28' param='vert' type-v2='layout-flow' w='80333' x='19081' y='8474'>
+            <zone h='90378' id='26' param='vert' type-v2='layout-flow' w='80333' x='19081' y='8474'>
+              <zone h='90378' id='24' param='vert' type-v2='layout-flow' w='80333' x='19081' y='8474'>
+                <zone h='90378' id='22' param='vert' type-v2='layout-flow' w='80333' x='19081' y='8474'>
+                  <zone h='90378' id='20' type-v2='layout-basic' w='80333' x='19081' y='8474'>
+                    <zone h='90378' id='13' param='vert' type-v2='layout-flow' w='80333' x='19081' y='8474'>
+                      <zone h='52071' id='15' name='Hist - Duración' w='80333' x='19081' y='8474'>
+                        <layout-cache minheight='209' type-h='scalable' type-w='fixed' />
+                        <zone-style>
+                          <format attr='border-color' value='#000000' />
+                          <format attr='border-style' value='none' />
+                          <format attr='border-width' value='0' />
+                          <format attr='margin' value='4' />
+                        </zone-style>
+                      </zone>
+                      <zone h='38307' id='18' name='Pie - Interna vs Externa' w='80333' x='19081' y='60545'>
+                        <layout-cache fixed-size-h='259' fixed-size-w='160' type-h='fixed' type-w='fixed' />
+                        <zone-style>
+                          <format attr='border-color' value='#000000' />
+                          <format attr='border-style' value='none' />
+                          <format attr='border-width' value='0' />
+                          <format attr='margin' value='4' />
+                        </zone-style>
+                      </zone>
+                    </zone>
+                  </zone>
+                </zone>
+              </zone>
+            </zone>
+          </zone>
+          <zone h='90378' id='30' param='vert' type-v2='layout-flow' w='18495' x='586' y='8474'>
+            <zone h='10043' id='10' mode='list' param='[Parameters].[Parámetro 1]' type-v2='paramctrl' w='18495' x='586' y='8474'>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='4' />
+              </zone-style>
+            </zone>
+            <zone h='7461' id='11' mode='type_in' param='[Parameters].[Parámetro 2]' type-v2='paramctrl' w='18495' x='586' y='18517'>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='4' />
+              </zone-style>
+            </zone>
+            <zone h='12769' id='16' mode='radiolist' name='Hist - Duración' param='[federated.1jyn97d1le9qpg1a2pd5o0zd8e3d].[none:Calculation_1309421649322102793:nk]' type-v2='filter' w='18495' x='586' y='25978'>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='4' />
+              </zone-style>
+            </zone>
+          </zone>
+          <zone h='7326' id='29' type-v2='title' w='98828' x='586' y='1148'>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <layout-options>
+            <title>
+              <formatted-text>
+                <run fontcolor='#000000' fontname='Benton Sans Book'>Llamadas por duración y tipo</run>
+              </formatted-text>
+            </title>
+          </layout-options>
+          <size maxheight='850' minheight='850' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='38' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='97102' id='37' param='vert' type-v2='layout-flow' w='98518' x='741' y='1449'>
+                <zone h='7283' id='29' type-v2='title' w='98518' x='741' y='1449'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='12681' id='10' mode='list' param='[Parameters].[Parámetro 1]' type-v2='paramctrl' w='18438' x='741' y='8732'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='16123' id='16' mode='dropdown' name='Hist - Duración' param='[federated.1jyn97d1le9qpg1a2pd5o0zd8e3d].[none:Calculation_1309421649322102793:nk]' type-v2='filter' w='18438' x='741' y='30833'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='41450' id='15' is-fixed='true' name='Hist - Duración' w='80080' x='19179' y='8732'>
+                  <layout-cache minheight='209' type-h='scalable' type-w='fixed' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='9420' id='11' mode='type_in' param='[Parameters].[Parámetro 2]' type-v2='paramctrl' w='18438' x='741' y='21413'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='48369' id='18' is-fixed='true' name='Pie - Interna vs Externa' w='80080' x='19179' y='50182'>
+                  <layout-cache fixed-size-h='259' fixed-size-w='160' type-h='fixed' type-w='fixed' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{7DC9F638-83BC-4F23-B443-F8A5D0058086}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='30'>
+    <window class='worksheet' name='Hist - Duración'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='checkdropdown' param='[federated.1jyn97d1le9qpg1a2pd5o0zd8e3d].[none:Calculation_1309421649322102793:nk]' type='filter' />
+            <card mode='compact' param='[Parameters].[Parámetro 1]' type='parameter' />
+            <card pane-specification-id='0' param='[federated.1jyn97d1le9qpg1a2pd5o0zd8e3d].[none:Calculation_1309421649322430475:nk]' type='color' />
+            <card mode='type_in' param='[Parameters].[Parámetro 2]' type='parameter' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{4A43C9D4-79ED-4CA9-9036-917B71C9BD6E}' />
+    </window>
+    <window class='worksheet' name='Pie - Interna vs Externa'>
+      <cards>
+        <edge name='left'>
+          <strip size='221'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='175'>
+            <card mode='checkdropdown' param='[federated.1jyn97d1le9qpg1a2pd5o0zd8e3d].[none:Calculation_1309421649322102793:nk]' type='filter' />
+            <card pane-specification-id='0' param='[federated.1jyn97d1le9qpg1a2pd5o0zd8e3d].[none:Calculation_1309421649322250250:nk]' type='color' />
+            <card pane-specification-id='0' param='[federated.1jyn97d1le9qpg1a2pd5o0zd8e3d].[sum:calls_count:qk]' type='size' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{355816B5-7A80-491F-A98E-3A3A5F9CBEDC}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Dashboard 1'>
+      <viewpoints>
+        <viewpoint name='Hist - Duración'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Pie - Interna vs Externa' />
+      </viewpoints>
+      <active id='18' />
+      <simple-id uuid='{4356FE42-AA29-4F8B-80FC-A9E0B7BA22D5}' />
+    </window>
+  </windows>
+</workbook>
